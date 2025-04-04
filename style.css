@@ -1,0 +1,119 @@
+/* General page style */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Page heading */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Carousel container */
+.container {
+  position: relative;
+  width: 800px;
+  height: 550px;
+  overflow: hidden; /* hides overflow content */
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Slider with flex to arrange images in row */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+/* Each image in the slider */
+.slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0; /* prevent shrinking */
+  object-fit: cover; /* image covers full area */
+}
+
+/* Left and right buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.carousel-button:hover {
+  opacity: 1;
+}
+
+/* Position buttons to left and right */
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+/* Navigation dots container */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* Single dot style */
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Highlight active dot */
+.carousel-indicator.active {
+  background-color: #3498db;
+}
+
+/* Auto-play buttons */
+.auto-play-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.auto-play-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.auto-play-button:hover {
+  background-color: #2980b9;
+}
