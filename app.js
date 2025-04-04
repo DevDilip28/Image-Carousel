@@ -1,4 +1,3 @@
-// Select DOM elements
 const track = document.getElementById('carouselTrack');
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.getElementById('prevButton');
@@ -7,18 +6,16 @@ const nav = document.getElementById('carouselNav');
 const autoPlayBtn = document.getElementById('autoPlayButton');
 const timerDisplay = document.getElementById('timerDisplay');
 
-let index = 0;         // Current slide index
-let autoPlay = false;  // Auto-play status
-let interval;          // Interval timer
+let index = 0;        
+let autoPlay = false;  
+let interval;         
 
-// Function to show a specific slide
 function showSlide(i) {
-  const slideWidth = slides[0].clientWidth; // Get width of one slide
-  track.style.transform = `translateX(-${i * slideWidth}px)`; // Slide to that position
-  updateIndicators(); // Update dots
+  const slideWidth = slides[0].clientWidth; 
+  track.style.transform = `translateX(-${i * slideWidth}px)`;
+  updateIndicators(); 
 }
 
-// Function to update active indicator
 function updateIndicators() {
   const indicators = document.querySelectorAll('.carousel-indicator');
   indicators.forEach((dot, idx) => {
@@ -26,12 +23,11 @@ function updateIndicators() {
   });
 }
 
-// Create indicator dots dynamically
 function createIndicators() {
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.classList.add('carousel-indicator');
-    if (i === 0) dot.classList.add('active'); // First dot active
+    if (i === 0) dot.classList.add('active'); 
     dot.addEventListener('click', () => {
       index = i;
       showSlide(index);
@@ -40,19 +36,16 @@ function createIndicators() {
   });
 }
 
-// Next slide
 function nextSlide() {
   index = (index + 1) % slides.length;
   showSlide(index);
 }
 
-// Previous slide
 function prevSlide() {
   index = (index - 1 + slides.length) % slides.length;
   showSlide(index);
 }
 
-// Start or stop auto-play
 function toggleAutoPlay() {
   if (autoPlay) {
     // Stop autoplay
@@ -62,7 +55,7 @@ function toggleAutoPlay() {
   } else {
     // Start autoplay
     autoPlayBtn.textContent = 'Stop Auto Play';
-    let timeLeft = 3; // Seconds countdown
+    let timeLeft = 3; 
     timerDisplay.textContent = `Next in ${timeLeft}s`;
 
     interval = setInterval(() => {
@@ -77,11 +70,9 @@ function toggleAutoPlay() {
   autoPlay = !autoPlay;
 }
 
-// Event listeners for buttons
 prevBtn.addEventListener('click', prevSlide);
 nextBtn.addEventListener('click', nextSlide);
 autoPlayBtn.addEventListener('click', toggleAutoPlay);
 
-// Initialize carousel
 createIndicators();
 showSlide(index);
